@@ -1,10 +1,28 @@
 (function(window) {
-    var app = window.app || {};
+    'use strict';
+    var App = window.App || {};
 
     function Datastore() {
-        console.log("Running Datastore Function")
+        console.log('Running Datastore Function')
         this.data = {};
     }
-    app.Datastore = Datastore;
-    window.app = app;
+
+    Datastore.prototype.add = function(key, val) {
+        this.data[key] = val;
+    };
+
+    Datastore.prototype.get = function(key) {
+        return this.data[key];
+    };
+
+    Datastore.prototype.getAll = function() {
+        return this.data;
+    };
+
+    Datastore.prototype.remove = function(key) {
+        delete this.data[key];
+    };
+
+    App.Datastore = Datastore;
+    window.App = App;
 })(window);
