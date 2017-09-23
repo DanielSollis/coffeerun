@@ -1,28 +1,25 @@
-(function(window) {
-    'use strict';
-    var App = window.App || {};
+var App = window.App || {};
 
-    function Datastore() {
-        console.log('Running Datastore Function')
-        this.data = {};
-    }
+function Datastore() {
+    console.log('Running Datastore Function')
+    this.data = {};
+}
 
-    Datastore.prototype.add = function(key, val) {
-        this.data[key] = val;
-    };
+Datastore.prototype.add = function(key, val) {
+    this.data[key] = val;
+};
 
-    Datastore.prototype.get = function(key) {
-        return this.data[key];
-    };
+Datastore.prototype.get = function(key) {
+    return this.data[key];
+};
 
-    Datastore.prototype.getAll = function() {
-        return this.data;
-    };
+Datastore.prototype.getAll = function() {
+    return this.data;
+};
 
-    Datastore.prototype.remove = function(key) {
-        delete this.data[key];
-    };
+Datastore.prototype.remove = function(key) {
+    delete this.data[key];
+};
 
-    App.Datastore = Datastore;
-    window.App = App;
-})(window);
+App.Datastore = Datastore;
+window.App = App;
