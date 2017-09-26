@@ -1,25 +1,28 @@
-var App = window.App || {};
-function Truck(truckId, db) {
-    this.truckId = truckId;
-    this.db = db;
-}
+(function(window) {
+    'use strict';
+    var App = window.App || {};
+    function Truck(truckId, db) {
+        this.truckId = truckId;
+        this.db = db;
+    }
 
-Truck.prototype.createOrder = function(order) {
-    console.log('Adding order for ' + order.emailAddress);
-    this.db.add(order.emailAddress, order);
-};
+    Truck.prototype.createOrder = function(order) {
+        console.log('Adding order for ' + order.emailAddress);
+        this.db.add(order.emailAddress, order);
+    };
 
-Truck.prototype.deliverOrders = function(customerId) {
-    delete this.db.remove(customerId);
-};
+    Truck.prototype.deliverOrders = function(customerId) {
+        delete this.db.remove(customerId);
+    };
 
-Truck.prototype.printOrders = function() {
-    var customerIdArray = Object.keys(this.db.getAll());
+    Truck.prototype.printOrders = function() {
+        var customerIdArray = Object.keys(this.db.getAll());
 
-    console.log('Truck # ' + this.truckId + ' has pending orders:');
-    customerIdArray.forEach(function(id) {
-        console.log(this.db.get(id));
-    }.bind(this));
-};
+        console.log('Truck # ' + this.truckId + ' has pending orders:');
+        customerIdArray.forEach(function(id) {
+            console.log(this.db.get(id));
+        }.bind(this));
+    };
 
-App.Truck = Truck;
+    App.Truck = Truck;
+})(window);
