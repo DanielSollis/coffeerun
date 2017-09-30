@@ -5,7 +5,6 @@
     var App = window.App;
     var Truck = App.Truck;
     var RemoteDataStore = App.RemoteDataStore;
-    var Datastore = App.Datastore;
     var remoteDS = new RemoteDataStore(SERVER_URL);
     var Validation = App.Validation;
     var FormHandler = App.FormHandler;

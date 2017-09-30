@@ -24,10 +24,14 @@
     };
 
     RemoteDataStore.prototype.get = function(key, cb){
-        $.get(this.serverUrl + '/' + key, function(serverResponse){
+        $.get(this.serverUrl + '/' + key, function (val, serverResponse) {
             console.log(serverResponse);
             cb(serverResponse);
         });
+    };
+
+    RemoteDataStore.prototype.remove = function(key){
+        $.ajax(this.serverUrl + '/' + key, {type: 'DELETE'})
     };
 
     App.RemoteDataStore = RemoteDataStore;
