@@ -16,10 +16,9 @@
         });
     };
 
-    RemoteDataStore.prototype.getAll = function(cb){
+    RemoteDataStore.prototype.getAll = function(){
         $.get(this.serverUrl, function(serverResponse){
             console.log(serverResponse);
-            cb(serverResponse);
         });
     };
 

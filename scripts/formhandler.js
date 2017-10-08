@@ -15,8 +15,8 @@
 
     FormHandler.prototype.addSubmitHandler = function(fn) {
         console.log('Setting submit handler for form');
-        this.$formElement.on('submit', function(event) {
-            event.preventDefault();
+        this.$formElement.on('submit', function(event) { //grab form element on submit event
+            event.preventDefault();   //stop normal submit event
 
             var data = {};
             $(this).serializeArray().forEach(function(item){
